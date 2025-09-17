@@ -98,6 +98,12 @@
             margin-bottom: 20px;
             animation: blink 2s infinite;
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            cursor: pointer; /* 마우스 올리면 클릭 커서로 변경 (추가) */
+            transition: transform 0.3s; /* 부드러운 효과를 위한 추가 */
+        }
+
+        .event-banner:hover {
+            transform: scale(1.02); /* 마우스를 올리면 살짝 커지는 효과 */
         }
 
         @keyframes blink {
@@ -313,7 +319,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="slide">
+       <div class="slide">
             <div class="header">
                 <img src="https://raw.githubusercontent.com/kwansubshim-cloud/coinone/main/coinone-logo-white.png" alt="Coinone" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo').style.display='block';">
                 <div class="logo">COINONE</div>
@@ -321,11 +327,13 @@
                 <div class="official-badge">공식 회원가입 안내</div>
             </div>
             
-            <div class="event-banner">
-                <div class="event-title">🎉 신규 회원 특별 이벤트! 🎉</div>
-                <div class="event-detail">지금 가입하고 <span style="font-size: 1.3em;">풍성한 혜택</span>을 모두 받으세요!</div>
-                <div class="event-date">~ 2025년 9월 21일까지</div>
-            </div>
+            <a href="http://coinone.co.kr/my/activity/event-code?code=" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="event-banner">
+                    <div class="event-title">🎉 신규 회원 특별 이벤트! 🎉</div>
+                    <div class="event-detail">지금 가입하고 <span style="font-size: 1.3em;">풍성한 혜택</span>을 모두 받으세요!</div>
+                    <div class="event-date">~ 2025년 9월 21일까지</div>
+                </div>
+            </a>
             
             <div class="warning-box">
                 <div class="warning-title">⚠️ 먼저 확인해주세요!</div>
@@ -336,6 +344,7 @@
                     <li>모든 가입은 본인 휴대폰으로 직접 진행합니다.</li>
                 </ul>
             </div>
+        </div>
         </div>
 
         <div class="slide">
@@ -384,7 +393,7 @@
                 <a href="https://coinone.co.kr/promotion/fee-coupon-event" target="_blank">
                     <div class="info-card">
                         <div class="info-icon">🎟️</div>
-                        <div class="info-title-small">거래수수료 100% 페이백</div>
+                        <div class="info-title-small">거래수수료 100% 무료</div>
                         <p>거래대금 1억원까지</p>
                     </div>
                 </a>
@@ -442,7 +451,7 @@
                 코인원 스테이킹 서비스를 시작해 보세요.
             </p>
             <div class="safe-box" style="margin-top: 30px;">
-                <div class="safe-title">👍 코인원 스테이킹 장점</div>
+                <div class="safe-title">👍 코인원의 스테이킹 서비스 </div>
                 <ul class="check-list">
                     <li>복잡한 절차 없이 클릭 몇 번으로 간편하게 참여</li>
                     <li>업계 최고 수준의 보안으로 자산을 안전하게 보관</li>
