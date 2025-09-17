@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>코인원 공식 회원가입 안내</title>
     <style>
-        /* 기본 스타일 */
+        /* Pretendard 폰트 CDN */
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+        /* 1. 기본 및 레이아웃 스타일 */
         * {
             margin: 0;
             padding: 0;
@@ -16,83 +19,54 @@
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #0066FF 0%, #004FC7 100%);
             min-height: 100vh;
+            word-break: keep-all; /* 한국어 단어 잘림 방지 */
+            -webkit-font-smoothing: antialiased; /* 폰트 렌더링 최적화 */
         }
         
         .container {
-            width: 100%; /* 너비를 100%로 설정 */
-            max-width: 800px; /* 데스크톱에서 최대 너비 제한 */
-            margin: 0 auto; /* 중앙 정렬 */
-            padding: 30px 15px; /* 위아래, 좌우 여백 추가 */
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 15px;
         }
 
-        /* 슬라이드(섹션) 스타일 */
-       /* ================================== */
-        /* ======== 유의사항(Disclaimer) 스타일 ======== */
-        /* ================================== */
-        .disclaimer {
-            text-align: left;
-            margin-top: 10px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.85em;
-        }
-        .disclaimer h4 {
-            font-weight: bold;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-        .disclaimer ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .disclaimer li {
-            margin-bottom: 10px;
-            line-height: 1.6;
-            padding-left: 20px;
-            position: relative;
-        }
-        .disclaimer li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
         .slide {
             background: white;
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            animation: slideIn 0.5s ease-out;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: slideIn 0.6s ease-out;
             text-align: center;
         }
         
         @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* 2. 타이포그래피 (글꼴) 스타일 */
         h2 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.8em;
+            color: #212529;
+            margin-bottom: 25px;
+            font-size: 1.9em;
+            font-weight: 700;
         }
         
         h3 {
-            color: #555;
-            margin-bottom: 15px;
-            font-size: 1.3em;
+            color: #495057;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 600;
         }
 
         p {
-            line-height: 1.6;
-            color: #666;
+            line-height: 1.7; /* 줄 간격 조정 */
+            color: #495057;
             margin-bottom: 15px;
         }
-        
-        /* 헤더 스타일 */
+
+        /* 3. 컴포넌트 스타일 (헤더, 배너, 박스 등) */
         .header {
             background: linear-gradient(135deg, #0066FF 0%, #004FC7 100%);
             color: white;
@@ -106,7 +80,7 @@
             margin-bottom: 15px;
         }
         
-        .logo { /* 이미지 로드 실패 시 대체 텍스트 */
+        .logo {
             font-size: 2.5em;
             font-weight: bold;
             margin-bottom: 10px;
@@ -121,13 +95,14 @@
             border-radius: 20px;
             font-size: 0.9em;
             margin-top: 10px;
+            font-weight: 500;
         }
 
-        /* 이벤트 배너 스타일 */
         .event-banner {
             background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%);
-            color: white;
-            padding: 20px;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            padding: 25px;
             border-radius: 15px;
             margin-bottom: 20px;
             animation: blink 2s infinite;
@@ -146,67 +121,59 @@
         }
         
         .event-title {
-            font-size: 1.5em;
-            font-weight: bold;
+            font-size: 1.6em;
+            font-weight: 700;
             margin-bottom: 10px;
         }
         
         .event-detail { font-size: 1.2em; }
         
         .event-date {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.25);
             display: inline-block;
             padding: 5px 15px;
             border-radius: 20px;
-            margin-top: 10px;
-            font-weight: bold;
+            margin-top: 15px;
+            font-weight: 500;
+            font-size: 0.9em;
         }
 
-        /* 정보/경고 박스 스타일 */
+        /* 정보/경고 박스 공통 스타일 */
         .warning-box, .safe-box, .brand-box {
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 12px;
             text-align: left;
+            border-left-width: 5px;
+            border-left-style: solid;
         }
 
         .warning-box {
-            background: #E3F2FD;
-            border-left: 4px solid #0066FF;
-        }
-        
-        .warning-title {
-            color: #0066FF;
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 10px;
+            background: #F1F7FF;
+            border-left-color: #0066FF;
         }
         
         .safe-box {
-            background: #E8F5E9;
-            border-left: 4px solid #4CAF50;
-        }
-
-        .safe-title {
-            color: #2E7D32;
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 10px;
+            background: #F1FAF1;
+            border-left-color: #4CAF50;
         }
         
         .brand-box {
-            background: #E3F2FD;
-            border-left: 4px solid #0066FF;
+            background: #F1F7FF;
+            border-left-color: #0066FF;
         }
-
-        .brand-title {
-            color: #0066FF;
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 10px;
+        
+        .warning-title, .safe-title, .brand-title {
+            font-weight: 600;
+            font-size: 1.25em;
+            margin-bottom: 15px;
         }
+        
+        .warning-title { color: #0066FF; }
+        .safe-title { color: #2E7D32; }
+        .brand-title { color: #0066FF; }
 
-        /* 리스트 스타일 */
+        /* 리스트 공통 스타일 */
         .check-list, .x-list, .brand-check-list {
             list-style: none;
             padding: 0;
@@ -217,37 +184,18 @@
             position: relative;
         }
         
-        .check-list li:before {
-            content: "✓";
+        .check-list li:before, .x-list li:before, .brand-check-list li:before {
             position: absolute;
             left: 0;
-            color: #4CAF50;
             font-weight: bold;
             font-size: 1.2em;
         }
         
-        .x-list li:before {
-            content: "✕";
-            position: absolute;
-            left: 0;
-            color: #F44336;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        
-        .brand-check-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #0066FF;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
+        .check-list li:before { content: "✓"; color: #4CAF50; }
+        .x-list li:before { content: "✕"; color: #F44336; }
+        .brand-check-list li:before { content: "✓"; color: #0066FF; }
 
-        .emphasis {
-            color: #D32F2F;
-            font-weight: bold;
-        }
+        .emphasis { color: #D32F2F; font-weight: bold; }
 
         /* 혜택 그리드 스타일 */
         .info-grid {
@@ -263,9 +211,9 @@
         }
         
         .info-card {
-            background: #F5F5F5;
-            padding: 20px;
-            border-radius: 10px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
             transition: transform 0.3s, box-shadow 0.3s;
             height: 100%;
             display: flex;
@@ -275,7 +223,7 @@
         
         .info-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
         
         .info-card.highlight {
@@ -283,31 +231,16 @@
             border: 2px solid #FF9800;
         }
         
-        .info-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        
-        .info-title, .info-title-small {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-            font-size: 1.1em;
-        }
-        
-        .info-price {
-            color: #FF6B00;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
+        .info-icon { font-size: 2.2em; margin-bottom: 15px; }
+        .info-title { font-weight: 600; color: #333; margin-bottom: 8px; font-size: 1.2em; }
+        .info-price { color: #FF6B00; font-size: 1.4em; font-weight: 700; }
 
         /* QR 코드, 영상, 버튼 스타일 */
         .qr-section {
             padding: 30px;
-            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
-            border-radius: 10px;
+            background: linear-gradient(135deg, #F1F7FF, #E3F2FD);
+            border-radius: 15px;
             margin: 20px 0;
-            border: 2px solid #0066FF;
         }
 
         .qr-code {
@@ -341,10 +274,10 @@
             display: inline-block;
             background: #0066FF;
             color: white;
-            padding: 15px 30px;
+            padding: 15px 35px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             margin-top: 20px;
             transition: background-color 0.3s, transform 0.3s;
         }
@@ -354,29 +287,48 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 79, 199, 0.4);
         }
+        
+        /* 4. 유의사항 (Disclaimer) 스타일 */
+        .disclaimer {
+            text-align: left;
+            margin-top: 10px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.8em;
+        }
+        .disclaimer h4 {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 1);
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+        .disclaimer ul { list-style: none; padding-left: 0; }
+        .disclaimer li { margin-bottom: 10px; line-height: 1.6; padding-left: 20px; position: relative; }
+        .disclaimer li:before { content: "•"; position: absolute; left: 0; top: 0; }
 
-        /* ================================== */
-        /* ===== 모바일 반응형 스타일 (핵심 수정) ===== */
-        /* ================================== */
+        /* 5. 모바일 반응형 스타일 */
         @media (max-width: 768px) {
             .container {
-                padding: 15px 15px; /* 모바일에서 위아래, 좌우 여백 조정 */
+                padding: 15px 15px;
             }
             .slide {
-                padding: 25px; /* 박스 내부 여백을 줄여 콘텐츠 공간 확보 */
+                padding: 30px 25px;
             }
             h2 {
-                font-size: 1.5em; /* 제목 글자 크기 조정 */
+                font-size: 1.6em;
             }
             h3 {
-                font-size: 1.15em; /* 소제목 글자 크기 조정 */
+                font-size: 1.2em;
             }
             .header, .qr-section {
                 padding: 25px;
             }
             .info-grid {
-                /* 모바일에서는 한 줄에 하나씩 보이도록 조정 */
                 grid-template-columns: 1fr;
+            }
+            .event-title {
+                font-size: 1.4em;
             }
         }
     </style>
@@ -393,8 +345,8 @@
             
             <a href="http://coinone.co.kr/my/activity/event-code?code=" target="_blank" style="text-decoration: none; color: inherit;">
                 <div class="event-banner">
-                    <div class="event-title">🎉 신규 회원 특별 이벤트! 🎉</div>
-                    <div class="event-detail">지금 가입하고 <span style="font-size: 1.3em;">풍성한 혜택</span>을 모두 받으세요!</div>
+                    <div class="event-title">🎉 신규 회원 특별 이벤트!</div>
+                    <div class="event-detail">지금 가입하고 <span style="font-size: 1.2em; font-weight: 600;">풍성한 혜택</span>을 모두 받으세요!</div>
                     <div class="event-date">~ 2025년 9월 21일까지</div>
                 </div>
             </a>
@@ -422,7 +374,7 @@
                 </ul>
             </div>
             
-            <div class="warning-box" style="background: #FFF3E0; border-left: 4px solid #FF9800;">
+            <div class="warning-box" style="background: #FFF3E0; border-left-color: #FF9800;">
                 <div class="warning-title" style="color: #E65100;">❌ 절대 하지 않는 일</div>
                 <ul class="x-list">
                     <li>현금이나 계좌이체 요구</li>
@@ -522,14 +474,6 @@
                 <img class="qr-code" src="https://raw.githubusercontent.com/kwansubshim-cloud/coinone/main/image%20(5).png" alt="회원가입 QR 코드">
             </div>
         </div>
-    </div>
-    <div class="slide">
-            <h2>📲 회원가입 방법</h2>
-            <div class="qr-section">
-                <h3>QR코드로 간편 가입</h3>
-                <img class="qr-code" src="https://raw.githubusercontent.com/kwansubshim-cloud/coinone/main/image%20(5).png" alt="회원가입 QR 코드">
-            </div>
-        </div>
 
         <div class="disclaimer">
             <h4>※ 투자 유의사항</h4>
@@ -541,7 +485,6 @@
             </ul>
         </div>
 
-    </div> </body>
-</html>
+    </div>
 </body>
 </html>
