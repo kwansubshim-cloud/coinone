@@ -9,21 +9,22 @@
         @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 
         /* 1. 기본 및 레이아웃 스타일 */
+        html {
+            font-size: 15px; /* 기본 폰트 크기를 16px에서 15px로 줄여 전체 스케일 조정 */
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-         .logo-img {
-            height: 40px; /* 50px에서 40px으로 수정 */
-            margin-bottom: 15px;
-        }
+        
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #0066FF 0%, #004FC7 100%);
             min-height: 100vh;
-            word-break: keep-all; /* 한국어 단어 잘림 방지 */
-            -webkit-font-smoothing: antialiased; /* 폰트 렌더링 최적화 */
+            word-break: keep-all;
+            -webkit-font-smoothing: antialiased;
         }
         
         .container {
@@ -36,7 +37,7 @@
         .slide {
             background: white;
             border-radius: 20px;
-            padding: 40px;
+            padding: 35px; /* 여백 미세 조정 */
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             animation: slideIn 0.6s ease-out;
@@ -52,39 +53,40 @@
         h2 {
             color: #212529;
             margin-bottom: 25px;
-            font-size: 1.9em;
+            font-size: 1.8rem; /* rem 단위로 변경하여 일관성 유지 */
             font-weight: 700;
         }
         
         h3 {
             color: #495057;
             margin-bottom: 20px;
-            font-size: 1.4em;
+            font-size: 1.3rem;
             font-weight: 600;
         }
 
         p {
-            line-height: 1.7; /* 줄 간격 조정 */
+            line-height: 1.7;
             color: #495057;
             margin-bottom: 15px;
+            font-size: 1rem; /* 기본 폰트 크기 명시 */
         }
 
         /* 3. 컴포넌트 스타일 (헤더, 배너, 박스 등) */
         .header {
             background: linear-gradient(135deg, #0066FF 0%, #004FC7 100%);
             color: white;
-            padding: 30px;
+            padding: 25px; /* 여백 미세 조정 */
             border-radius: 15px;
             margin-bottom: 30px;
         }
         
         .logo-img {
-            height: 50px;
+            height: 40px;
             margin-bottom: 15px;
         }
         
         .logo {
-            font-size: 2.5em;
+            font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 10px;
             display: none;
@@ -96,7 +98,7 @@
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.9em;
+            font-size: 0.9rem;
             margin-top: 10px;
             font-weight: 500;
         }
@@ -124,12 +126,12 @@
         }
         
         .event-title {
-            font-size: 1.6em;
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 10px;
         }
         
-        .event-detail { font-size: 1.2em; }
+        .event-detail { font-size: 1.15rem; }
         
         .event-date {
             background: rgba(255,255,255,0.25);
@@ -138,7 +140,7 @@
             border-radius: 20px;
             margin-top: 15px;
             font-weight: 500;
-            font-size: 0.9em;
+            font-size: 0.9rem;
         }
 
         /* 정보/경고 박스 공통 스타일 */
@@ -151,24 +153,13 @@
             border-left-style: solid;
         }
 
-        .warning-box {
-            background: #F1F7FF;
-            border-left-color: #0066FF;
-        }
-        
-        .safe-box {
-            background: #F1FAF1;
-            border-left-color: #4CAF50;
-        }
-        
-        .brand-box {
-            background: #F1F7FF;
-            border-left-color: #0066FF;
-        }
+        .warning-box { background: #F1F7FF; border-left-color: #0066FF; }
+        .safe-box { background: #F1FAF1; border-left-color: #4CAF50; }
+        .brand-box { background: #F1F7FF; border-left-color: #0066FF; }
         
         .warning-title, .safe-title, .brand-title {
             font-weight: 600;
-            font-size: 1.25em;
+            font-size: 1.2rem;
             margin-bottom: 15px;
         }
         
@@ -177,23 +168,11 @@
         .brand-title { color: #0066FF; }
 
         /* 리스트 공통 스타일 */
-        .check-list, .x-list, .brand-check-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .check-list li, .x-list li, .brand-check-list li {
-            padding: 10px 0 10px 30px;
-            position: relative;
-        }
-        
+        .check-list, .x-list, .brand-check-list { list-style: none; padding: 0; }
+        .check-list li, .x-list li, .brand-check-list li { padding: 10px 0 10px 30px; position: relative; }
         .check-list li:before, .x-list li:before, .brand-check-list li:before {
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-            font-size: 1.2em;
+            position: absolute; left: 0; font-weight: bold; font-size: 1.2rem;
         }
-        
         .check-list li:before { content: "✓"; color: #4CAF50; }
         .x-list li:before { content: "✕"; color: #F44336; }
         .brand-check-list li:before { content: "✓"; color: #0066FF; }
@@ -203,16 +182,12 @@
         /* 혜택 그리드 스타일 */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
         
-        .info-grid a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
+        .info-grid a { text-decoration: none; color: inherit; }
         .info-card {
             background: #f8f9fa;
             padding: 25px;
@@ -223,20 +198,11 @@
             flex-direction: column;
             justify-content: center;
         }
-        
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        }
-        
-        .info-card.highlight {
-            background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
-            border: 2px solid #FF9800;
-        }
-        
-        .info-icon { font-size: 2.2em; margin-bottom: 15px; }
-        .info-title { font-weight: 600; color: #333; margin-bottom: 8px; font-size: 1.2em; }
-        .info-price { color: #FF6B00; font-size: 1.4em; font-weight: 700; }
+        .info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .info-card.highlight { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); border: 2px solid #FF9800; }
+        .info-icon { font-size: 2.1rem; margin-bottom: 15px; }
+        .info-title { font-weight: 600; color: #333; margin-bottom: 8px; font-size: 1.15rem; }
+        .info-price { color: #FF6B00; font-size: 1.3rem; font-weight: 700; }
 
         /* QR 코드, 영상, 버튼 스타일 */
         .qr-section {
@@ -245,66 +211,33 @@
             border-radius: 15px;
             margin: 20px 0;
         }
-
         .qr-code {
-            width: 60%;
-            max-width: 250px;
-            height: auto;
-            margin: 15px auto 0;
-            padding: 10px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 60%; max-width: 250px; height: auto; margin: 15px auto 0;
+            padding: 10px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
         .video-container {
-            width: 100%;
-            max-width: 600px;
-            margin: 25px auto;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            cursor: pointer;
+            width: 100%; max-width: 600px; margin: 25px auto;
+            border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer;
         }
-
-        .smart-trading-video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
+        .smart-trading-video { width: 100%; height: auto; display: block; }
         .cta-button {
-            display: inline-block;
-            background: #0066FF;
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block; background: #0066FF; color: white; padding: 14px 30px;
+            border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s; font-size: 1rem;
         }
-
         .cta-button:hover {
-            background-color: #004FC7;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 79, 199, 0.4);
+            background-color: #004FC7; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 79, 199, 0.4);
         }
         
         /* 4. 유의사항 (Disclaimer) 스타일 */
         .disclaimer {
-            text-align: left;
-            margin-top: 10px;
-            padding-top: 30px;
+            text-align: left; margin-top: 10px; padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.75); font-size: 0.8rem;
         }
         .disclaimer h4 {
-            font-weight: 600;
-            color: rgba(255, 255, 255, 1);
-            margin-bottom: 15px;
-            font-size: 1em;
+            font-weight: 600; color: rgba(255, 255, 255, 1);
+            margin-bottom: 15px; font-size: 1rem;
         }
         .disclaimer ul { list-style: none; padding-left: 0; }
         .disclaimer li { margin-bottom: 10px; line-height: 1.6; padding-left: 20px; position: relative; }
@@ -312,33 +245,20 @@
 
         /* 5. 모바일 반응형 스타일 */
         @media (max-width: 768px) {
-            .container {
-                padding: 15px 15px;
-            }
-            .slide {
-                padding: 30px 25px;
-            }
-            h2 {
-                font-size: 1.6em;
-            }
-            h3 {
-                font-size: 1.2em;
-            }
-            .header, .qr-section {
-                padding: 25px;
-            }
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            .event-title {
-                font-size: 1.4em;
-            }
+            html { font-size: 14px; } /* 모바일에서 기본 폰트 크기 추가 조정 */
+            .container { padding: 15px; }
+            .slide { padding: 30px 20px; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.1rem; }
+            .header, .qr-section, .event-banner { padding: 20px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .event-title { font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-      <div class="slide">
+        <div class="slide">
             <a href="https://apps.coinone.co.kr/download" target="_blank" style="text-decoration: none; color: inherit;">
                 <div class="header">
                     <img src="https://raw.githubusercontent.com/kwansubshim-cloud/coinone/main/coinone-logo-white.png" alt="Coinone" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo').style.display='block';">
@@ -354,18 +274,6 @@
                     <div class="event-detail">지금 가입하고 <span style="font-size: 1.2em; font-weight: 600;">풍성한 혜택</span>을 모두 받으세요!</div>
                     <div class="event-date">~ 2025년 9월 21일까지</div>
                 </div>
-            </a>
-            
-            <div class="warning-box">
-                <div class="warning-title">⚠️ 먼저 확인해주세요!</div>
-                <p>본 안내는 <strong>코인원 공식 홍보 활동</strong>입니다.</p>
-                <ul class="check-list">
-                    <li>금전, 계좌번호, 비밀번호 등을 <span class="emphasis">절대 요구하지 않습니다.</span></li>
-                    <li>오직 회원가입 방법만 안내드립니다.</li>
-                    <li>모든 가입은 본인 휴대폰으로 직접 진행합니다.</li>
-                </ul>
-            </div>
-        </div>
             </a>
             
             <div class="warning-box">
@@ -483,7 +391,6 @@
                 스테이킹 자세히 보러가기
             </a>
         </div>
-
 
         <div class="disclaimer">
             <h4>※ 투자 유의사항</h4>
