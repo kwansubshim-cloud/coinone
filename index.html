@@ -24,6 +24,44 @@
             margin: 0 auto;
         }
 
+/* ================================== */
+        /* ===== 브랜드 색상 박스 스타일 (추가) ===== */
+        /* ================================== */
+        .brand-box {
+            background: #E3F2FD; /* 코인원 테마의 연한 파란색 */
+            border-left: 4px solid #0066FF; /* 코인원 메인 파란색 */
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .brand-title {
+            color: #0066FF; /* 코인원 메인 파란색 */
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .brand-check-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .brand-check-list li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+        }
+        
+        .brand-check-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066FF; /* 체크리스트 아이콘을 파란색으로 변경 */
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
         /* 슬라이드(섹션) 스타일 */
         .slide {
             background: white;
@@ -348,29 +386,6 @@
         </div>
 
         <div class="slide">
-            <h2>🛡️ 안전한 홍보 활동입니다</h2>
-            <div class="safe-box">
-                <div class="safe-title">✅ 코인원 공식 홍보팀이 하는 일</div>
-                <ul class="check-list">
-                    <li>회원가입 방법 안내</li>
-                    <li>공식 앱 다운로드 방법 설명</li>
-                    <li>이벤트 및 혜택 정보 제공</li>
-                    <li>공식 홈페이지 및 고객센터 안내</li>
-                </ul>
-            </div>
-            
-            <div class="warning-box" style="background: #FFF3E0; border-left: 4px solid #FF9800;">
-                <div class="warning-title" style="color: #E65100;">❌ 절대 하지 않는 일</div>
-                <ul class="x-list">
-                    <li>현금이나 계좌이체 요구</li>
-                    <li>개인 비밀번호 요청</li>
-                    <li>투자 수익 보장 약속</li>
-                    <li>타인 명의 가입 요청</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="slide">
             <h2>🎁 지금 가입하시면 드리는 혜택</h2>
             <div class="info-grid">
                 <a href="http://coinone.co.kr/my/activity/event-code?code=" target="_blank">
@@ -408,21 +423,13 @@
             </div>
         </div>
         
-        <div class="slide">
-            <h2>💡 더 스마트한 투자, 스마트 트레이딩</h2>
-            <p style="max-width: 600px; margin-left: auto; margin-right: auto;">
-                복잡한 매매는 이제 그만! 내가 자는 동안에도 24시간 알아서 거래하는
-                코인원의 자동매매 서비스를 이용해 보세요.
-            </p>
-            <div class="video-container">
-           
-               <div class="slide">
+       <div class="slide">
             <h2>💡 더 스마트한 투자, 스마트 트레이딩</h2>
             <p style="max-width: 600px; margin-left: auto; margin-right: auto;">
                 복잡한 매매는 이제 그만! 내가 자는 동안에도 24시간 알아서 거래하는<br>
                 코인원의 자동매매 서비스를 이용해 보세요.
             </p>
-
+            
             <a href="https://coinone.co.kr/smart-trading" target="_blank">
                 <div class="video-container">
                     <video class="smart-trading-video" src="https://cdn.coinone.co.kr/common/smart-trading/videos/on_boarding_video_desktop.mp4" 
@@ -432,9 +439,9 @@
                 </div>
             </a>
             
-            <div class="safe-box" style="margin-top: 30px;">
-                <div class="safe-title">✨ 스마트 트레이딩 주요 기능</div>
-                <ul class="check-list">
+            <div class="brand-box" style="margin-top: 30px;">
+                <div class="brand-title">✨ 스마트 트레이딩 주요 기능</div>
+                <ul class="brand-check-list">
                     <li>초보자도 쉽게 따라하는 추천 전략 제공</li>
                     <li>24시간 시장을 감지하여 자동으로 매매</li>
                     <li>감정에 휘둘리지 않는 체계적인 시스템 투자</li>
@@ -442,7 +449,6 @@
                 </ul>
             </div>
         </div>
-         
 
         <div class="slide">
             <h2>🌱 맡기기만 해도 이자가 차곡차곡</h2>
@@ -450,9 +456,10 @@
                 어려운 투자가 막막하다면, 코인을 맡기기만 해도 매일 이자를 주는
                 코인원 스테이킹 서비스를 시작해 보세요.
             </p>
-            <div class="safe-box" style="margin-top: 30px;">
-                <div class="safe-title">코인원의 스테이킹 서비스 </div>
-                <ul class="check-list">
+
+            <div class="brand-box" style="margin-top: 30px;">
+                <div class="brand-title">👍 코인원 스테이킹 장점</div>
+                <ul class="brand-check-list">
                     <li>복잡한 절차 없이 클릭 몇 번으로 간편하게 참여</li>
                     <li>업계 최고 수준의 보안으로 자산을 안전하게 보관</li>
                     <li>매일매일 쌓이는 이자를 앱에서 투명하게 확인</li>
@@ -462,6 +469,7 @@
                 스테이킹 자세히 보러가기
             </a>
         </div>
+         
 
         <div class="slide">
             <h2>📲 회원가입 방법</h2>
@@ -471,6 +479,28 @@
             </div>
         </div>
 
+        <div class="slide">
+            <h2>🛡️ 안전한 홍보 활동입니다</h2>
+            <div class="safe-box">
+                <div class="safe-title">✅ 코인원 공식 홍보팀이 하는 일</div>
+                <ul class="check-list">
+                    <li>회원가입 방법 안내</li>
+                    <li>공식 앱 다운로드 방법 설명</li>
+                    <li>이벤트 및 혜택 정보 제공</li>
+                    <li>공식 홈페이지 및 고객센터 안내</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box" style="background: #FFF3E0; border-left: 4px solid #FF9800;">
+                <div class="warning-title" style="color: #E65100;">❌ 절대 하지 않는 일</div>
+                <ul class="x-list">
+                    <li>현금이나 계좌이체 요구</li>
+                    <li>개인 비밀번호 요청</li>
+                    <li>투자 수익 보장 약속</li>
+                    <li>타인 명의 가입 요청</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>
