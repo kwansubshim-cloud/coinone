@@ -16,52 +16,15 @@
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #0066FF 0%, #004FC7 100%);
             min-height: 100vh;
-            padding: 20px;
         }
         
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 100%; /* 너비를 100%로 설정 */
+            max-width: 800px; /* 데스크톱에서 최대 너비 제한 */
+            margin: 0 auto; /* 중앙 정렬 */
+            padding: 30px 15px; /* 위아래, 좌우 여백 추가 */
         }
 
-/* ================================== */
-        /* ===== 브랜드 색상 박스 스타일 (추가) ===== */
-        /* ================================== */
-        .brand-box {
-            background: #E3F2FD; /* 코인원 테마의 연한 파란색 */
-            border-left: 4px solid #0066FF; /* 코인원 메인 파란색 */
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            text-align: left;
-        }
-
-        .brand-title {
-            color: #0066FF; /* 코인원 메인 파란색 */
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
-        .brand-check-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .brand-check-list li {
-            padding: 10px 0 10px 30px;
-            position: relative;
-        }
-        
-        .brand-check-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #0066FF; /* 체크리스트 아이콘을 파란색으로 변경 */
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        
         /* 슬라이드(섹션) 스타일 */
         .slide {
             background: white;
@@ -136,12 +99,12 @@
             margin-bottom: 20px;
             animation: blink 2s infinite;
             box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-            cursor: pointer; /* 마우스 올리면 클릭 커서로 변경 (추가) */
-            transition: transform 0.3s; /* 부드러운 효과를 위한 추가 */
+            cursor: pointer;
+            transition: transform 0.3s;
         }
 
         .event-banner:hover {
-            transform: scale(1.02); /* 마우스를 올리면 살짝 커지는 효과 */
+            transform: scale(1.02);
         }
 
         @keyframes blink {
@@ -167,7 +130,7 @@
         }
 
         /* 정보/경고 박스 스타일 */
-        .warning-box, .safe-box {
+        .warning-box, .safe-box, .brand-box {
             padding: 20px;
             margin: 20px 0;
             border-radius: 8px;
@@ -197,14 +160,26 @@
             font-size: 1.2em;
             margin-bottom: 10px;
         }
+        
+        .brand-box {
+            background: #E3F2FD;
+            border-left: 4px solid #0066FF;
+        }
+
+        .brand-title {
+            color: #0066FF;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
 
         /* 리스트 스타일 */
-        .check-list, .x-list {
+        .check-list, .x-list, .brand-check-list {
             list-style: none;
             padding: 0;
         }
         
-        .check-list li, .x-list li {
+        .check-list li, .x-list li, .brand-check-list li {
             padding: 10px 0 10px 30px;
             position: relative;
         }
@@ -226,6 +201,15 @@
             font-weight: bold;
             font-size: 1.2em;
         }
+        
+        .brand-check-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066FF;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
 
         .emphasis {
             color: #D32F2F;
@@ -240,7 +224,7 @@
             margin: 30px 0;
         }
         
-        .info-grid a { /* info-card를 감싸는 링크 스타일 초기화 */
+        .info-grid a {
             text-decoration: none;
             color: inherit;
         }
@@ -271,18 +255,11 @@
             margin-bottom: 10px;
         }
         
-        .info-title {
+        .info-title, .info-title-small {
             font-weight: bold;
             color: #333;
             margin-bottom: 5px;
             font-size: 1.1em;
-        }
-
-        .info-title-small {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-            font-size: 1.0em; /* 글자 크기를 약간 줄임 */
         }
         
         .info-price {
@@ -291,7 +268,7 @@
             font-weight: bold;
         }
 
-        /* QR 코드 섹션 스타일 */
+        /* QR 코드, 영상, 버튼 스타일 */
         .qr-section {
             padding: 30px;
             background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
@@ -311,7 +288,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* 영상 관련 스타일 */
         .video-container {
             width: 100%;
             max-width: 600px;
@@ -319,6 +295,7 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
 
         .smart-trading-video {
@@ -327,7 +304,6 @@
             display: block;
         }
         
-        /* CTA 버튼 스타일 */
         .cta-button {
             display: inline-block;
             background: #0066FF;
@@ -346,18 +322,35 @@
             box-shadow: 0 4px 10px rgba(0, 79, 199, 0.4);
         }
 
-        /* 모바일 반응형 */
+        /* ================================== */
+        /* ===== 모바일 반응형 스타일 (핵심 수정) ===== */
+        /* ================================== */
         @media (max-width: 768px) {
-            body { padding: 10px; }
-            .slide { padding: 25px; }
-            .logo { font-size: 2em; }
-            .event-title { font-size: 1.2em; }
+            .container {
+                padding: 15px 15px; /* 모바일에서 위아래, 좌우 여백 조정 */
+            }
+            .slide {
+                padding: 25px; /* 박스 내부 여백을 줄여 콘텐츠 공간 확보 */
+            }
+            h2 {
+                font-size: 1.5em; /* 제목 글자 크기 조정 */
+            }
+            h3 {
+                font-size: 1.15em; /* 소제목 글자 크기 조정 */
+            }
+            .header, .qr-section {
+                padding: 25px;
+            }
+            .info-grid {
+                /* 모바일에서는 한 줄에 하나씩 보이도록 조정 */
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-       <div class="slide">
+        <div class="slide">
             <div class="header">
                 <img src="https://raw.githubusercontent.com/kwansubshim-cloud/coinone/main/coinone-logo-white.png" alt="Coinone" class="logo-img" onerror="this.style.display='none'; document.querySelector('.logo').style.display='block';">
                 <div class="logo">COINONE</div>
@@ -383,6 +376,28 @@
                 </ul>
             </div>
         </div>
+
+        <div class="slide">
+            <h2>🛡️ 안전한 홍보 활동입니다</h2>
+            <div class="safe-box">
+                <div class="safe-title">✅ 코인원 공식 홍보팀이 하는 일</div>
+                <ul class="check-list">
+                    <li>회원가입 방법 안내</li>
+                    <li>공식 앱 다운로드 방법 설명</li>
+                    <li>이벤트 및 혜택 정보 제공</li>
+                    <li>공식 홈페이지 및 고객센터 안내</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box" style="background: #FFF3E0; border-left: 4px solid #FF9800;">
+                <div class="warning-title" style="color: #E65100;">❌ 절대 하지 않는 일</div>
+                <ul class="x-list">
+                    <li>현금이나 계좌이체 요구</li>
+                    <li>개인 비밀번호 요청</li>
+                    <li>투자 수익 보장 약속</li>
+                    <li>타인 명의 가입 요청</li>
+                </ul>
+            </div>
         </div>
 
         <div class="slide">
@@ -408,7 +423,7 @@
                 <a href="https://coinone.co.kr/promotion/fee-coupon-event" target="_blank">
                     <div class="info-card">
                         <div class="info-icon">🎟️</div>
-                        <div class="info-title-small">거래수수료 100% 무료</div>
+                        <div class="info-title">거래수수료 100% 페이백</div>
                         <p>거래대금 1억원까지</p>
                     </div>
                 </a>
@@ -423,13 +438,12 @@
             </div>
         </div>
         
-       <div class="slide">
+        <div class="slide">
             <h2>💡 더 스마트한 투자, 스마트 트레이딩</h2>
             <p style="max-width: 600px; margin-left: auto; margin-right: auto;">
-                복잡한 매매는 이제 그만! 내가 자는 동안에도 24시간 알아서 거래하는<br>
+                복잡한 매매는 이제 그만! 내가 자는 동안에도 24시간 알아서 거래하는
                 코인원의 자동매매 서비스를 이용해 보세요.
             </p>
-            
             <a href="https://coinone.co.kr/smart-trading" target="_blank">
                 <div class="video-container">
                     <video class="smart-trading-video" src="https://cdn.coinone.co.kr/common/smart-trading/videos/on_boarding_video_desktop.mp4" 
@@ -438,7 +452,6 @@
                     </video>
                 </div>
             </a>
-            
             <div class="brand-box" style="margin-top: 30px;">
                 <div class="brand-title">✨ 스마트 트레이딩 주요 기능</div>
                 <ul class="brand-check-list">
@@ -456,7 +469,6 @@
                 어려운 투자가 막막하다면, 코인을 맡기기만 해도 매일 이자를 주는
                 코인원 스테이킹 서비스를 시작해 보세요.
             </p>
-
             <div class="brand-box" style="margin-top: 30px;">
                 <div class="brand-title">👍 코인원 스테이킹 장점</div>
                 <ul class="brand-check-list">
@@ -469,36 +481,12 @@
                 스테이킹 자세히 보러가기
             </a>
         </div>
-         
 
         <div class="slide">
             <h2>📲 회원가입 방법</h2>
             <div class="qr-section">
                 <h3>QR코드로 간편 가입</h3>
                 <img class="qr-code" src="https://raw.githubusercontent.com/kwansubshim-cloud/coinone/main/image%20(5).png" alt="회원가입 QR 코드">
-            </div>
-        </div>
-
-        <div class="slide">
-            <h2>🛡️ 안전한 홍보 활동입니다</h2>
-            <div class="safe-box">
-                <div class="safe-title">✅ 코인원 공식 홍보팀이 하는 일</div>
-                <ul class="check-list">
-                    <li>회원가입 방법 안내</li>
-                    <li>공식 앱 다운로드 방법 설명</li>
-                    <li>이벤트 및 혜택 정보 제공</li>
-                    <li>공식 홈페이지 및 고객센터 안내</li>
-                </ul>
-            </div>
-            
-            <div class="warning-box" style="background: #FFF3E0; border-left: 4px solid #FF9800;">
-                <div class="warning-title" style="color: #E65100;">❌ 절대 하지 않는 일</div>
-                <ul class="x-list">
-                    <li>현금이나 계좌이체 요구</li>
-                    <li>개인 비밀번호 요청</li>
-                    <li>투자 수익 보장 약속</li>
-                    <li>타인 명의 가입 요청</li>
-                </ul>
             </div>
         </div>
     </div>
