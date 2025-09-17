@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코인원 공식 회원가입 안내</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .official-badge {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .event-banner {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: blink 2s infinite;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .event-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .event-detail {
+            font-size: 1.2em;
+        }
+        
+        .event-date {
+            background: rgba(255,255,255,0.3);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .warning-box {
+            background: #FFF3E0;
+            border-left: 4px solid #FF9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .warning-title {
+            color: #E65100;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .safe-box {
+            background: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .safe-title {
+            color: #2E7D32;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .check-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .check-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .x-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .x-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .x-list li:before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #F44336;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .info-card {
+            background: #F5F5F5;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-card.highlight {
+            background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+            border: 2px solid #FF9800;
+        }
+        
+        .info-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .info-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .info-price {
+            color: #FF6B00;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .qr-section {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #FFF9C4, #FFE082);
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #FFB300;
+        }
+        
+        .qr-code-img {
+            width: 180px;
+            height: 180px;
+            margin: 20px auto;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-section {
+            background: #ECEFF1;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .contact-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #37474F;
+        }
+        
+        .highlight {
+            background: #FFF9C4;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .emphasis {
+            color: #D32F2F;
+            font-weight: bold;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        p {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 25px;
+            }
+            
+            .logo {
+                font-size: 2em;
+            }
+            
+            .event-title {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 메인 타이틀 -->
+        <div class="slide">
+            <div class="header">
+                <div class="logo">COINONE</div>
+                <div>대한민국 대표 가상자산 거래소</div>
+                <div class="official-badge">공식 회원가입 안내</div>
+            </div>
+            
+            <div class="event-banner">
+                <div class="event-title">🎉 히든 이벤트 진행중! 🎉</div>
+                <div class="event-detail">지금 가입하면 <span style="font-size: 1.3em;">2만원 상당 BTC</span> 지급!</div>
+                <div class="event-date">~ 2024년 9월 21일까지</div>
+            </div>
+            
+            <div class="warning-box">
+                <div class="warning-title">⚠️ 먼저 확인해주세요!</div>
+                <p>본 안내는 <strong>코인원 공식 홍보 활동</strong>입니다.</p>
+                <ul class="check-list">
+                    <li>금전, 계좌번호, 비밀번호 등을 <span class="emphasis">절대 요구하지 않습니다</span></li>
+                    <li>오직 회원가입 방법만 안내드립니다</li>
+                    <li>모든 가입은 본인 휴대폰으로 직접 진행합니다</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 신뢰 구축 -->
+        <div class="slide">
+            <h2>🛡️ 안전한 홍보 활동입니다</h2>
+            
+            <div class="safe-box">
+                <div class="safe-title">✅ 코인원 공식 홍보팀이 하는 일</div>
+                <ul class="check-list">
+                    <li>회원가입 방법 안내</li>
+                    <li>공식 앱 다운로드 방법 설명</li>
+                    <li>이벤트 및 혜택 정보 제공</li>
+                    <li>공식 홈페이지 및 고객센터 안내</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <div class="warning-title">❌ 절대 하지 않는 일</div>
+                <ul class="x-list">
+                    <li>현금이나 계좌이체 요구</li>
+                    <li>개인 비밀번호 요청</li>
+                    <li>투자 수익 보장 약속</li>
+                    <li>타인 명의 가입 요청</li>
+                    <li>즉석에서 입금 요구</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 회원가입 혜택 -->
+        <div class="slide">
+            <h2>🎁 지금 가입하시면</h2>
+            
+            <div class="info-grid">
+                <div class="info-card highlight">
+                    <div class="info-icon">💰</div>
+                    <div class="info-title">히든 이벤트</div>
+                    <p class="info-price">2만원 상당 BTC</p>
+                    <p style="color: #E65100; font-size: 0.9em;">9/21까지 한정!</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">📱</div>
+                    <div class="info-title">간편한 모바일 거래</div>
+                    <p>언제 어디서나 안전하게</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">🔒</div>
+                    <div class="info-title">강력한 보안</div>
+                    <p>금융당국 인가 정식 거래소</p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">🏆</div>
+                    <div class="info-title">10년 전통</div>
+                    <p>2014년부터 무사고 운영</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 가입 방법 -->
+        <div class="slide">
+            <h2>📲 회원가입 방법</h2>
+            
+            <div class="qr-section">
+                <h3>QR코드로 간편 가입</h3>
+                <img src="data:image/png;base64,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
