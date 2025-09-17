@@ -196,16 +196,25 @@
             margin: 30px 0;
         }
         
+        .info-grid a { /* info-card를 감싸는 링크 스타일 초기화 */
+            text-decoration: none;
+            color: inherit;
+        }
+        
         .info-card {
             background: #F5F5F5;
             padding: 20px;
             border-radius: 10px;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .info-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .info-card.highlight {
@@ -222,6 +231,14 @@
             font-weight: bold;
             color: #333;
             margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .info-title-small {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1.0em; /* 글자 크기를 약간 줄임 */
         }
         
         .info-price {
@@ -250,24 +267,40 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* ================================== */
-        /* ========= 영상 관련 스타일 (추가됨) ========= */
-        /* ================================== */
+        /* 영상 관련 스타일 */
         .video-container {
             width: 100%;
-            max-width: 600px; /* 영상의 최대 너비 제한 */
-            margin: 25px auto; /* 위아래, 좌우 여백 및 가운데 정렬 */
-            border-radius: 15px; /* 모서리를 둥글게 */
-            overflow: hidden; /* 둥근 모서리 밖으로 영상이 나가지 않도록 */
+            max-width: 600px;
+            margin: 25px auto;
+            border-radius: 15px;
+            overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .smart-trading-video {
-            width: 100%; /* 부모 요소에 꽉 차게 */
-            height: auto; /* 비율 유지 */
-            display: block; /* 불필요한 여백 제거 */
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
+        /* CTA 버튼 스타일 */
+        .cta-button {
+            display: inline-block;
+            background: #0066FF;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #004FC7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 79, 199, 0.4);
+        }
 
         /* 모바일 반응형 */
         @media (max-width: 768px) {
@@ -289,8 +322,8 @@
             </div>
             
             <div class="event-banner">
-                <div class="event-title">🎉 히든 이벤트 진행중! 🎉</div>
-                <div class="event-detail">지금 가입하면 <span style="font-size: 1.3em;">2만원 상당 BTC</span> 지급!</div>
+                <div class="event-title">🎉 신규 회원 특별 이벤트! 🎉</div>
+                <div class="event-detail">지금 가입하고 <span style="font-size: 1.3em;">풍성한 혜택</span>을 모두 받으세요!</div>
                 <div class="event-date">~ 2025년 9월 21일까지</div>
             </div>
             
@@ -329,48 +362,75 @@
         </div>
 
         <div class="slide">
-            <h2>🎁 지금 가입하시면</h2>
+            <h2>🎁 지금 가입하시면 드리는 혜택</h2>
             <div class="info-grid">
-                <div class="info-card highlight">
-                    <div class="info-icon">💰</div>
-                    <div class="info-title">히든 이벤트</div>
-                    <p class="info-price">2만원 상당 BTC</p>
-                    <p style="color: #E65100; font-size: 0.9em;">9/21까지 한정!</p>
-                </div>
+                <a href="http://coinone.co.kr/my/activity/event-code?code=" target="_blank">
+                    <div class="info-card highlight">
+                        <div class="info-icon">💰</div>
+                        <div class="info-title">히든 이벤트</div>
+                        <p class="info-price">2만원 상당 BTC</p>
+                        <p style="color: #E65100; font-size: 0.9em;">코드 입력 시 즉시 지급!</p>
+                    </div>
+                </a>
                 
-                <div class="info-card">
-                    <div class="info-icon">📱</div>
-                    <div class="info-title">간편한 모바일 거래</div>
-                    <p>언제 어디서나 안전하게</p>
-                </div>
+                <a href="https://coinone.co.kr/info/notice/4516" target="_blank">
+                    <div class="info-card">
+                        <div class="info-icon">🎁</div>
+                        <div class="info-title">첫 거래 리워드</div>
+                        <p>3만원 상당 혜택 추가 지급</p>
+                    </div>
+                </a>
                 
-                <div class="info-card">
-                    <div class="info-icon">💎</div>
-                    <div class="info-title">국내 최다 코인</div>
-                    <p>새로운 투자 기회를 가장 먼저</p>
-                </div>
+                <a href="https://coinone.co.kr/promotion/fee-coupon-event" target="_blank">
+                    <div class="info-card">
+                        <div class="info-icon">🎟️</div>
+                        <div class="info-title-small">거래수수료 100% 페이백</div>
+                        <p>거래대금 1억원까지</p>
+                    </div>
+                </a>
                 
-                <div class="info-card">
-                    <div class="info-icon">🏆</div>
-                    <div class="info-title">10년 무사고 운영</div>
-                    <p>신뢰할 수 있는 기술력</p>
-                </div>
+                <a href="https://coinone.co.kr/info/notice/4023" target="_blank">
+                     <div class="info-card">
+                        <div class="info-icon">🤝</div>
+                        <div class="info-title">친구 초대 리워드</div>
+                        <p>1명당 4천원 무제한 지급</p>
+                    </div>
+                </a>
             </div>
         </div>
         
         <div class="slide">
             <h2>💡 더 스마트한 투자, 스마트 트레이딩</h2>
             <p style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                복잡한 매매는 이제 그만! 내가 자는 동안에도 24시간 알아서 거래하는
+                코인원의 자동매매 서비스를 이용해 보세요.
+            </p>
+            <div class="video-container">
+                /* 영상 관련 스타일 */
+        .video-container {
+            width: 100%;
+            max-width: 600px; /* 영상의 최대 너비 제한 */
+            margin: 25px auto; /* 위아래, 좌우 여백 및 가운데 정렬 */
+            border-radius: 15px; /* 모서리를 둥글게 */
+            overflow: hidden; /* 둥근 모서리 밖으로 영상이 나가지 않도록 */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            cursor: pointer; /* 마우스를 올리면 클릭 가능한 커서 모양으로 변경 (추가) */
+        }
+               <div class="slide">
+            <h2>💡 더 스마트한 투자, 스마트 트레이딩</h2>
+            <p style="max-width: 600px; margin-left: auto; margin-right: auto;">
                 복잡한 매매는 이제 그만! 내가 자는 동안에도 24시간 알아서 거래하는<br>
                 코인원의 자동매매 서비스를 이용해 보세요.
             </p>
 
-            <div class="video-container">
-                <video class="smart-trading-video" src="https://cdn.coinone.co.kr/common/smart-trading/videos/on_boarding_video_desktop.mp4" 
-                       playsinline autoplay muted loop>
-                    이 브라우저는 비디오 태그를 지원하지 않습니다.
-                </video>
-            </div>
+            <a href="https://coinone.co.kr/smart-trading" target="_blank">
+                <div class="video-container">
+                    <video class="smart-trading-video" src="https://cdn.coinone.co.kr/common/smart-trading/videos/on_boarding_video_desktop.mp4" 
+                           playsinline autoplay muted loop>
+                        이 브라우저는 비디오 태그를 지원하지 않습니다.
+                    </video>
+                </div>
+            </a>
             
             <div class="safe-box" style="margin-top: 30px;">
                 <div class="safe-title">✨ 스마트 트레이딩 주요 기능</div>
@@ -381,6 +441,26 @@
                     <li>수익은 극대화하고 손실은 제어하는 전략 설정</li>
                 </ul>
             </div>
+        </div>
+         
+
+        <div class="slide">
+            <h2>🌱 맡기기만 해도 이자가 차곡차곡</h2>
+            <p style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                어려운 투자가 막막하다면, 코인을 맡기기만 해도 매일 이자를 주는
+                코인원 스테이킹 서비스를 시작해 보세요.
+            </p>
+            <div class="safe-box" style="margin-top: 30px;">
+                <div class="safe-title">👍 코인원 스테이킹 장점</div>
+                <ul class="check-list">
+                    <li>복잡한 절차 없이 클릭 몇 번으로 간편하게 참여</li>
+                    <li>업계 최고 수준의 보안으로 자산을 안전하게 보관</li>
+                    <li>매일매일 쌓이는 이자를 앱에서 투명하게 확인</li>
+                </ul>
+            </div>
+            <a href="https://coinone.co.kr/staking" target="_blank" class="cta-button">
+                스테이킹 자세히 보러가기
+            </a>
         </div>
 
         <div class="slide">
