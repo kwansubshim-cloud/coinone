@@ -43,6 +43,11 @@
             }
         }
         
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -66,6 +71,36 @@
             border-radius: 20px;
             font-size: 0.9em;
             margin-top: 10px;
+        }
+        
+        .event-banner {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFD93D 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: blink 2s infinite;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .event-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .event-detail {
+            font-size: 1.2em;
+        }
+        
+        .event-date {
+            background: rgba(255,255,255,0.3);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            font-weight: bold;
         }
         
         .warning-box {
@@ -150,6 +185,17 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-card.highlight {
+            background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+            border: 2px solid #FF9800;
         }
         
         .info-icon {
@@ -163,24 +209,29 @@
             margin-bottom: 5px;
         }
         
+        .info-price {
+            color: #FF6B00;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
         .qr-section {
             text-align: center;
             padding: 30px;
-            background: #F8F9FA;
+            background: linear-gradient(135deg, #FFF9C4, #FFE082);
             border-radius: 10px;
             margin: 20px 0;
+            border: 2px solid #FFB300;
         }
         
-        .qr-placeholder {
-            width: 150px;
-            height: 150px;
-            background: #E0E0E0;
+        .qr-code-img {
+            width: 180px;
+            height: 180px;
             margin: 20px auto;
-            border: 2px dashed #999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .contact-section {
@@ -224,16 +275,36 @@
             color: #666;
             margin-bottom: 15px;
         }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 25px;
+            }
+            
+            .logo {
+                font-size: 2em;
+            }
+            
+            .event-title {
+                font-size: 1.2em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Slide 1: 메인 타이틀 -->
+        <!-- 메인 타이틀 -->
         <div class="slide">
             <div class="header">
                 <div class="logo">COINONE</div>
                 <div>대한민국 대표 가상자산 거래소</div>
                 <div class="official-badge">공식 회원가입 안내</div>
+            </div>
+            
+            <div class="event-banner">
+                <div class="event-title">🎉 히든 이벤트 진행중! 🎉</div>
+                <div class="event-detail">지금 가입하면 <span style="font-size: 1.3em;">2만원 상당 BTC</span> 지급!</div>
+                <div class="event-date">~ 2024년 9월 21일까지</div>
             </div>
             
             <div class="warning-box">
@@ -247,7 +318,7 @@
             </div>
         </div>
 
-        <!-- Slide 2: 신뢰 구축 -->
+        <!-- 신뢰 구축 -->
         <div class="slide">
             <h2>🛡️ 안전한 홍보 활동입니다</h2>
             
@@ -273,15 +344,16 @@
             </div>
         </div>
 
-        <!-- Slide 3: 회원가입 혜택 -->
+        <!-- 회원가입 혜택 -->
         <div class="slide">
             <h2>🎁 지금 가입하시면</h2>
             
             <div class="info-grid">
-                <div class="info-card">
+                <div class="info-card highlight">
                     <div class="info-icon">💰</div>
-                    <div class="info-title">신규가입 혜택</div>
-                    <p>가입 완료 시 특별 혜택 제공</p>
+                    <div class="info-title">히든 이벤트</div>
+                    <p class="info-price">2만원 상당 BTC</p>
+                    <p style="color: #E65100; font-size: 0.9em;">9/21까지 한정!</p>
                 </div>
                 
                 <div class="info-card">
@@ -304,54 +376,10 @@
             </div>
         </div>
 
-        <!-- Slide 4: 가입 방법 -->
+        <!-- 가입 방법 -->
         <div class="slide">
             <h2>📲 회원가입 방법</h2>
             
             <div class="qr-section">
                 <h3>QR코드로 간편 가입</h3>
-                <div class="qr-placeholder">
-                    [QR 코드]
-                </div>
-                <p>스마트폰으로 QR코드를 스캔하시면<br>공식 앱 다운로드 페이지로 이동합니다</p>
-            </div>
-            
-            <h3>또는 직접 가입하기</h3>
-            <ol style="padding-left: 20px; line-height: 2;">
-                <li>앱스토어/구글플레이에서 <span class="highlight">'코인원'</span> 검색</li>
-                <li>공식 앱 다운로드 (파란색 로고 확인)</li>
-                <li>회원가입 버튼 클릭</li>
-                <li>본인 명의 휴대폰으로 인증</li>
-                <li>신분증 촬영으로 본인확인</li>
-            </ol>
-        </div>
-
-        <!-- Slide 5: 연락처 및 확인사항 -->
-        <div class="slide">
-            <h2>📞 공식 확인 채널</h2>
-            
-            <div class="contact-section">
-                <div class="contact-title">의심스러우신가요? 직접 확인하세요!</div>
-                <p>🌐 공식 홈페이지: <strong>www.coinone.co.kr</strong></p>
-                <p>📞 고객센터: <strong>1670-9756</strong></p>
-                <p>⏰ 운영시간: 평일 09:00 ~ 18:00</p>
-            </div>
-            
-            <div style="background: #FFF3E0; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: center;">
-                <p style="font-size: 1.1em; color: #E65100;">
-                    <strong>다시 한 번 안내드립니다</strong><br>
-                    저희는 <span class="emphasis">회원가입 안내만</span> 도와드립니다<br>
-                    금전 요구는 <span class="emphasis">절대 하지 않습니다</span>
-                </p>
-            </div>
-            
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center;">
-                <p style="color: #999; font-size: 0.9em;">
-                    본 자료는 코인원 공식 홍보 자료입니다<br>
-                    사칭 및 보이스피싱에 주의하세요
-                </p>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+                <img src="data:image/png;base64,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
